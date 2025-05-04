@@ -29,5 +29,5 @@ This project consists of:
 1. Install [Node.js](https://nodejs.org/)
 2. Clone the repo:
 
-   git clone ```https://github.com/your-username/youtube-tv-discord-rpc.git```
+   git clone ```https://github.com/cbx-nz/youtube-tv-discord-rpc.git```
    cd youtube-tv-discord-rpc
