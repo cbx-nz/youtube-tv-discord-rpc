@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "tvrpc": "./rpc-server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cbx-nz/youtube-tv-discord-rpc.git"
@@ -18,9 +21,12 @@
   },
   "homepage": "https://github.com/cbx-nz/youtube-tv-discord-rpc#readme",
   "dependencies": {
+    "axios": "^1.9.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "discord-rpc": "^4.0.1",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
   }
 }

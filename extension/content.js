@@ -1,24 +1,28 @@
-function getVideoTitle() {
-  const titleEl = document.querySelector(".ytp-title-link");
-  return titleEl ? titleEl.textContent : "Unknown video";
+function getVideoInfo() {
+  const titleEl = document.querySelector("yt-formatted-string.ytLrVideoTitleTrayTitleText");
+  const authorEl = document.querySelector("yt-formatted-string.ytLrVideoMetadataLineDetailTexts");
+  const videoIdMatch = location.href.match(/v=([a-zA-Z0-9_-]{11})/);
+
+  return {
+    title: titleEl?.textContent || "Unknown",
+    author: authorEl?.textContent || "Unknown",
+    videoId: videoIdMatch ? videoIdMatch[1] : "",
+  };
 }
 
-function getPlaybackState() {
-  const playBtn = document.querySelector(".ytp-play-button");
-  if (playBtn?.title?.includes("Pause")) return "Playing";
-  if (playBtn?.title?.includes("Play")) return "Paused";
-  return "Unknown state";
+function isTabActive() {
+  return document.visibilityState === "visible";
 }
 
-function sendRPCUpdate() {
-  const title = getVideoTitle();
-  const state = getPlaybackState();
-
+setInterval(() => {
+  const videoInfo = getVideoInfo();
+  const isActive = isTabActive();
   fetch("http://localhost:3020/update", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title, state }),
-  }).catch(console.error);
-}
-
-setInterval(sendRPCUpdate, 15000);
+    body: JSON.stringify({
+      ...videoInfo,
+      isActive,
+    })
+  });
+}, 5000);
