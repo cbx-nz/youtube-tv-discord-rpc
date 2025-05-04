@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const CLIENT_ID = 'your_discord_app_client_id'; // Replace with your actual Discord App ID
+const CLIENT_ID = '1368478869371355209'; // Replace with your actual Discord App ID
 RPC.register(CLIENT_ID);
 
 const rpc = new RPC.Client({ transport: 'ipc' });
