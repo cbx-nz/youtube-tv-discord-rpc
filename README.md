@@ -1,4 +1,4 @@
-# YouTube TV Discord RPC
+# YouTube TV Discord RPC [BROKEN]
 
 🎮 A lightweight Node.js + Chrome Extension setup to display YouTube TV activity as Discord Rich Presence.
 
